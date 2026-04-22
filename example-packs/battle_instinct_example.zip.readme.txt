@@ -1,0 +1,28 @@
+Create a zip or folder inside .minecraft/enchantmentpacks/ with this internal path:
+
+data/enchantmentpacks/enchantments/battle_instinct.json
+
+Sample contents:
+{
+  "id": "battle_instinct",
+  "display_name": "Battle Instinct",
+  "description": "Bonus max health and attack damage while equipped",
+  "category": "armor_chest",
+  "slots": ["chest"],
+  "max_level": 3,
+  "rarity": "rare",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "add_value",
+      "amount": 2.0,
+      "amount_per_level": 2.0
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "add_percentage_total",
+      "amount": 5.0,
+      "amount_per_level": 5.0
+    }
+  ]
+}
