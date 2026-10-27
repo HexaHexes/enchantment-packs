@@ -55,3 +55,9 @@ Percentage operations use whole percentages in JSON. For example, `15` means `+1
 - Enchantments are applied from equipped items only.
 - Managed attribute modifiers refresh automatically when equipment changes and on a short player tick interval.
 - Negative values are supported for decreases.
+
+## AI disclosure
+
+Parts of this project were written with the assistance of AI coding tools.
+AI-assisted code, data and documentation ship only after human review by the
+maintainers.
