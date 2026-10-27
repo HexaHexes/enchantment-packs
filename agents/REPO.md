@@ -23,6 +23,7 @@ decreases.
 
 ## Notes
 
-- This repo predates the org's current workflow conventions: it ships no
-  `.github/workflows` at all (no CI checks run on its PRs). Bring it onto the
-  org baseline deliberately, not as a drive-by.
+- This repo now ships `release.yml`, `publish.yml` and `version-bump.yml`. The
+  template's `ci.yml` is deliberately not copied: this repo has no JUnit or
+  GameTest suite, so its three-check CI would fail every run - bring it when a
+  suite lands.
