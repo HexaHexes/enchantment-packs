@@ -56,6 +56,11 @@ Percentage operations use whole percentages in JSON. For example, `15` means `+1
 - Managed attribute modifiers refresh automatically when equipment changes and on a short player tick interval.
 - Negative values are supported for decreases.
 
+## License
+
+GNU Lesser General Public License v2.1 - see [LICENSE](LICENSE).
+Copyright (c) 2026 Bitwise Madness.
+
 ## AI disclosure
 
 Parts of this project were written with the assistance of AI coding tools.
