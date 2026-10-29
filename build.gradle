@@ -3,8 +3,8 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'com.github.spotbugs' version '6.5.12'
-    id 'com.diffplug.spotless' version '8.10.3'
+    id 'com.github.spotbugs' version '6.5.13'
+    id 'com.diffplug.spotless' version '8.10.4'
 }
 
 version = mod_version
