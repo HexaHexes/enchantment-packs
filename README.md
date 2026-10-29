@@ -1,13 +1,13 @@
 # Enchantment Packs
 
-Enchantment Packs is a data-driven Forge mod for Minecraft 1.20.1 that dynamically registers player attribute enchantments from external JSON packs.
+Enchantment Packs is a data-driven Forge mod for Minecraft 1.20.1. It dynamically registers player attribute enchantments from external JSON packs.
 
 ## Features
-- External folder and zip loading
+- Loads packs from external folders and zips
 - Merge and replace behavior per enchantment id
 - Fixed-value and percentage-based attribute modifiers
-- Conditional loading based on loaded mods
-- Generated English translations for loaded enchantments
+- Conditional loading based on which mods are loaded
+- Generates English translations for loaded enchantments
 
 ## Folder Structure
 `.minecraft/enchantmentpacks/<pack>/data/enchantmentpacks/enchantments/*.json`
