@@ -3,19 +3,6 @@ package org.bitwisemadness.enchantmentpacks.common.packs;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.bitwisemadness.enchantmentpacks.EnchantmentPacksMod;
-import org.bitwisemadness.enchantmentpacks.Env;
-import org.bitwisemadness.enchantmentpacks.LogUtil;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +19,18 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import lombok.Getter;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.bitwisemadness.enchantmentpacks.EnchantmentPacksMod;
+import org.bitwisemadness.enchantmentpacks.Env;
+import org.bitwisemadness.enchantmentpacks.LogUtil;
 
 public final class EnchantmentPackManager {
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().setLenient().create();
@@ -83,8 +82,17 @@ public final class EnchantmentPackManager {
 			List<Path> zipPacks = new ArrayList<>();
 
 			try (var stream = Files.list(INSTANCE_PACK_DIR)) {
-				stream.sorted(Comparator.comparing(path -> path.getFileName().toString().toLowerCase(Locale.ROOT))).forEach(path -> {
-					String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
+				stream.sorted(Comparator.comparing(path -> {
+					// Path.getFileName() is nullable; listed children of a directory
+					// always carry a name element, so the fallback is never taken.
+					Path name = path.getFileName();
+					return (name == null ? "" : name.toString()).toLowerCase(Locale.ROOT);
+				})).forEach(path -> {
+					Path fileNamePath = path.getFileName();
+					if (fileNamePath == null) {
+						return;
+					}
+					String fileName = fileNamePath.toString().toLowerCase(Locale.ROOT);
 					if (Files.isDirectory(path)) {
 						folderPacks.add(path);
 					} else if (fileName.endsWith(".zip") || fileName.endsWith(".jar")) {

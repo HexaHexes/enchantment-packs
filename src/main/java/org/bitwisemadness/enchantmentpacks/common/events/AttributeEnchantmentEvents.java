@@ -1,5 +1,7 @@
 package org.bitwisemadness.enchantmentpacks.common.events;
 
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -15,9 +17,6 @@ import net.minecraftforge.fml.common.Mod;
 import org.bitwisemadness.enchantmentpacks.EnchantmentPacksMod;
 import org.bitwisemadness.enchantmentpacks.common.init.MainEnchantments;
 import org.bitwisemadness.enchantmentpacks.common.packs.EnchantmentPackManager;
-
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = EnchantmentPacksMod.MOD_ID)
 public final class AttributeEnchantmentEvents {

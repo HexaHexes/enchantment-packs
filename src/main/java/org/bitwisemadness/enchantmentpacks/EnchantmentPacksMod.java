@@ -1,10 +1,10 @@
 package org.bitwisemadness.enchantmentpacks;
 
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.bitwisemadness.enchantmentpacks.common.events.ModCommonEvents;
 import org.bitwisemadness.enchantmentpacks.common.init.MainEnchantments;
 import org.bitwisemadness.enchantmentpacks.common.packs.EnchantmentPackManager;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(EnchantmentPacksMod.MOD_ID)
 public class EnchantmentPacksMod {
