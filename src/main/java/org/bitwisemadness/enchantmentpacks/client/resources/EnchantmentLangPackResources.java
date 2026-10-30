@@ -2,6 +2,13 @@ package org.bitwisemadness.enchantmentpacks.client.resources;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.Set;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
@@ -10,13 +17,6 @@ import net.minecraft.server.packs.resources.IoSupplier;
 import org.bitwisemadness.enchantmentpacks.EnchantmentPacksMod;
 import org.bitwisemadness.enchantmentpacks.common.packs.EnchantmentPackManager;
 import org.jetbrains.annotations.Nullable;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
-import java.util.Set;
 
 public class EnchantmentLangPackResources implements PackResources {
 	private final String packId;
@@ -74,7 +74,9 @@ public class EnchantmentLangPackResources implements PackResources {
 				return deserializer.fromJson(json.getAsJsonObject(sectionName));
 			}
 			return null;
-		} catch (Exception e) {
+		} catch (IOException | RuntimeException e) {
+			// IOException covers the reader's close(); everything the parse itself
+			// can throw is unchecked. Recovery unchanged: absent metadata.
 			return null;
 		}
 	}

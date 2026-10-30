@@ -1,5 +1,7 @@
 package org.bitwisemadness.enchantmentpacks.common.init;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -7,9 +9,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.bitwisemadness.enchantmentpacks.EnchantmentPacksMod;
 import org.bitwisemadness.enchantmentpacks.common.enchantments.PackAttributeEnchantment;
 import org.bitwisemadness.enchantmentpacks.common.packs.EnchantmentPackManager;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public final class MainEnchantments {
 	public static final DeferredRegister<net.minecraft.world.item.enchantment.Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, EnchantmentPacksMod.MOD_ID);
